@@ -19,6 +19,7 @@ import java.util.List;
 public class AnagramParserServiceTest {
 	private AnagramParserService anagramParserService;
 	private final String TEST_FILE_ORIGINAL = "/testInput-original.txt";
+	private final String TEST_FILE_ANOTHER = "/testInput-another.txt";
 
 	@Before
 	public void before() {
@@ -30,13 +31,51 @@ public class AnagramParserServiceTest {
 	 * Tests default example
 	 */
 	@Test
-	public void firstTest() throws Exception {
+	public void testOriginalDataSaet() throws Exception {
 		List<List<String>> expectedResult = new ArrayList<List<String>>(){{
 			add(Arrays.asList("act", "cat"));
 			add(Arrays.asList("race", "care", "acre"));
 		}};
 
 		URL url = this.getClass().getResource(TEST_FILE_ORIGINAL);
+		File file = new File(url.getFile());
+
+		anagramParserService = new AnagramParserServiceImpl(file.toURI());
+		List<List<String>> anagrams = anagramParserService.getAnagrams();
+		assertListEquals(expectedResult, anagrams);
+	}
+
+	/**
+	 * Tests another small data set
+	 */
+	@Test
+	public void testJustAnotherDataSet() throws Exception {
+		List<List<String>> expectedResult = new ArrayList<List<String>>(){{
+			add(Arrays.asList("open", "nope"));
+			add(Arrays.asList("yes", "sey"));
+			add(Arrays.asList("no", "on"));
+		}};
+
+		URL url = this.getClass().getResource(TEST_FILE_ANOTHER);
+		File file = new File(url.getFile());
+
+		anagramParserService = new AnagramParserServiceImpl(file.toURI());
+		List<List<String>> anagrams = anagramParserService.getAnagrams();
+		assertListEquals(expectedResult, anagrams);
+	}
+
+	/**
+	 * We expect an exception to be thrown here because of wrong result
+	 */
+	@Test(expected = Exception.class)
+	public void testJustAnotherDataSetMustThrowException() throws Exception {
+		List<List<String>> expectedResult = new ArrayList<List<String>>(){{
+			add(Arrays.asList("must", "not"));
+			add(Arrays.asList("match", "this"));
+			add(Arrays.asList("another", "test"));
+		}};
+
+		URL url = this.getClass().getResource(TEST_FILE_ANOTHER);
 		File file = new File(url.getFile());
 
 		anagramParserService = new AnagramParserServiceImpl(file.toURI());

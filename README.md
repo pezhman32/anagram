@@ -39,6 +39,9 @@ from our existing list is efficient however the problem is `AnagramParserService
 larger and larger. One solution is to save it onto disk on every `N` line parsed.<br />
 So when we read new items we have to fetch part of the list (in fixed amount) into memory and look for existing anagram.
 
+Also this solution does not cover any character other than 26 english chars. this can easily extended by editing 
+`Anagram.doesFit()` method.
+
 
 #### @Author
 pezhman32@gmail.com

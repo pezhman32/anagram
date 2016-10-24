@@ -1,0 +1,9 @@
+yes
+no
+on
+one
+say
+sey
+nope
+open
+closed
