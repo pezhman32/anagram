@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * This object will hold anagrams and some details about them
+ * TODO we can cover this with unit tests like what we've done for AnagramParserService
  *
  * @author Pezhman Jahanmard
  */
