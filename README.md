@@ -46,6 +46,6 @@ Also this solution does not cover any character other than 26 english chars. thi
 #### @Author
 pezhman32@gmail.com
 <br />
-Syype: pezhman128
+Skype: pezhman128
 <br />
 LinkedIn: http://linkedin.com/in/pezhman32
