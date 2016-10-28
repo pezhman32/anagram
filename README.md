@@ -1,6 +1,4 @@
 ## Find anagrams contained within a file
-Github: https://github.com/pezhman32/kaufland-exercise
-<br />
 Please find out [TASK.md](./TASK.md) to read the task and requirements.
 
 ### How to run the project:
